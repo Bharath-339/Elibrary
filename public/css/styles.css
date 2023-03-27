@@ -13,7 +13,7 @@ html{
 }
 body{
     scroll-behavior: smooth;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 :root{
@@ -34,6 +34,9 @@ a{
     text-decoration: none;
 }
 
+.navbar{
+    margin-bottom: 10px;
+}
 nav{
     /* margin: 10px auto; */
     padding: 10px 20px;
@@ -146,6 +149,32 @@ input{
 .center-text{
     text-align: center;
 }
+
+.newsdesk{
+    width: 75%;
+    margin: 10px auto;
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-grow: ; */
+}
+
+.newsbox{
+    /* width: 100%; */
+    max-width: 200px;
+    border: 1px solid gray;
+    padding: 15px 10px;
+    border-radius: 10px;
+    margin: 5px auto;
+    display: inline-block;
+}
+
+.newsbox h2{
+    font-size: var(--font-20);
+}
+
+.newsbox p{
+    /* font-size: var(--regular-font); */
+}   
 
 @media screen and (max-width : 960px){
     nav ul{
