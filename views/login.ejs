@@ -1,0 +1,21 @@
+<%= layout('layouts/boilerplate') %>
+
+
+<h1 class="center-text" style="margin-top: 30px;">Login form</h1>
+
+<div class="formwrapper">
+  <form action="/users/login" method="post">
+    <section>
+      <label for="username">User name</label>
+      <input type="text" name="username" id="username" />
+    </section>
+    <section>
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" />
+    </section>
+
+    <button>Log In</button>
+  </form>
+
+  <p>don't have an account   <a href="/users/signup" >Signup</a>  </p>
+</div>
