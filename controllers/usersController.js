@@ -20,12 +20,12 @@ module.exports.signupRender = (req,res)=>{
 
 
 module.exports.signup = async (req,res,next)=>{
-         const {email,password,username} = req.body;
-         const newuser = new User({email,username});
+         const {email,password,username,name} = req.body;
+         const newuser = new User({email,username,name});
          const registeruser  = await User.register(newuser,password);
          req.login(registeruser, err => {
             if (err) return next(err);
-            // req.flash('success', 'Welcome to Yelp Camp!');
+            req.flash('success', 'Welcome to Yelp Camp!');
             res.redirect('/');
         })
  }
@@ -36,6 +36,7 @@ module.exports.logout = (req,res,next)=>{
         if(err){
             return next(err);
         }
+        req.flash('success', 'Successfully logged out');
         res.redirect('/users/login');
     });
 }

@@ -1,23 +1,42 @@
-<%= layout('layouts/boilerplate') %>
+ <%= layout('layouts/boilerplate') %> 
 
 
-<h1 class="center-text" style="margin-top: 30px;">Sign up form</h1>
+<h1 class="center-text" style="margin-top: 30px;">NEW USER REGESTRATION</h1>
 
 <div class="formwrapper">
-    <form action="/users/signup" method="post">
-        <section>
-            <label for="username">User Name</label>
-            <input type="text" name="username" id="username">
+    <div class="success">
+        <%= success %>
+      </div>
+      <div class="error">
+        <%= error %>
+      </div>
+    <form action="/users/signup" method="post" id="form">
+        <section    class="input-control">
+            <label for="username">Enrollment Number </label>
+            <input type="number" name="username" id="username"  minlength="6" maxlength="6" required>
+
+            <div class="directions">Enrollment number must be only six digits</div>
         </section>
-        <section>
+        <section    class="input-control">
+            <label for="name">username </label>
+            <input type="text" name="name" id="name" required>
+            <div class="directions">Username must be minimum 2 characters and max 15 characters </div>
+        </section>
+        <section    class="input-control">
             <label for="email">Email id</label>
-            <input type="email" name="email" id="email">
+            <input type="email" name="email" id="email" required>
+            <div class="directions">Email id must end with domain bmu.edu.in</div>
         </section>
-        <section>
+        <section    class="input-control">
             <label for="password">Password</label>
-            <input type="password" name="password" id="password">
+            <input type="password" name="password"  id="password" required >
+            <div class="directions">Password must be altmost 8 characters</div>
         </section>
     
         <button>Sign up </button>
     </form>
 </div>
+
+
+<script src="/scripts/formValidation.js"></script>
+

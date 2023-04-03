@@ -6,7 +6,6 @@ var url =
 
 
 function createNewsBox(data){
-    // var element = `<div class="newsbox"><h2>${data.title}</h2><p>${data.content}</p><p>${data.source.name}</p></div>`
     var div = document.createElement('div');
     div.className = "newsbox";
     var h2 = document.createElement('h3');
@@ -15,9 +14,14 @@ function createNewsBox(data){
     var disc = document.createElement('p');
     disc.innerText = data.description;
     var pb = document.createElement('p');
-    pb.innerText ="Source : " +  data.source.name;
+    pb.innerText="Source : " +  data.source.name;
+    var a = document.createElement('a');
+    a.href = data.url;
+    a.innerText = "Visit Site"
+    a.target = "_blank"
     div.appendChild(disc);
     div.appendChild(pb);
+    div.append(a);
     return div;
 }
 

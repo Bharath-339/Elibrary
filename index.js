@@ -6,11 +6,11 @@ const ejsmate = require('ejs-mate');
 const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
+const flash = require('connect-flash');
+
 const User = require('./models/UserSchema');
 const ExpressError = require('./utils/ExpressError');
 const {isLoggedIn }= require('./utils/isLoggedIn');
-
-
 
 
 // user routes
@@ -44,6 +44,7 @@ const sessionConifg ={
 
 
 app.use(session(sessionConifg));
+app.use(flash());
 
 
 
@@ -55,7 +56,11 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req,res,next)=>{
+    // passport itself will add the user to the req object
     res.locals.currentUser = req.user;
+    res.locals.success = req.flash('success');
+    res.locals.error = req.flash('error')
+    
     next();
 })
 
