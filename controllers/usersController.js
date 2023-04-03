@@ -20,14 +20,20 @@ module.exports.signupRender = (req,res)=>{
 
 
 module.exports.signup = async (req,res,next)=>{
-         const {email,password,username,name} = req.body;
-         const newuser = new User({email,username,name});
-         const registeruser  = await User.register(newuser,password);
-         req.login(registeruser, err => {
-            if (err) return next(err);
-            req.flash('success', 'Welcome to Yelp Camp!');
-            res.redirect('/');
-        })
+        try {
+            const {email,password,username,name} = req.body;
+            const newuser = new User({email,username,name});
+            const registeruser  = await User.register(newuser,password);
+            req.login(registeruser, err => {
+                if (err) return next(err);
+                req.flash('success', 'Welcome to Back!');
+                res.redirect('/');
+            })
+            
+        } catch (e) {
+            req.flash('error', e.message);
+            res.redirect('signup');
+        }
  }
 
 
