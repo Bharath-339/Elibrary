@@ -5,7 +5,6 @@
     box-sizing: border-box;
     text-transform: capitalize;
     font-family: 'Poppins', sans-serif;
-
 }
 
 html{
@@ -37,6 +36,12 @@ a{
     text-decoration: none;
 }
 
+.main-heading{
+    text-transform: uppercase;
+    word-spacing: 1.5;
+    font-size: var(--big-font);
+    color: #aba7a7;
+}
 .navbar{
     margin-bottom: 10px;
 }
@@ -180,35 +185,69 @@ input.invalid{
     text-align: center;
 }
 
+/* ----------------------------   NEWS PAGE ------------------------ */
 .newsdesk{
     width: 75%;
     margin: 10px auto;
     display: flex;
-    flex-wrap: wrap;
-    /* flex-grow: ; */
+    flex-direction: column;
+    
 }
 
-.newsbox{
-    /* width: 100%; */
-    max-width: 200px;
-    border: 1px solid gray;
-    padding: 15px 10px;
+.news{
+    width: 100%;
+    /* max-height: 300px; */
+    display: flex;
+}
+
+.news-img{
+    flex-basis: 40%;
+    min-width: 150px;
+    min-height: 50px;
+    /* max-height:200px; */
+}
+.news-img > img{
+    width: 100%;
+    max-height:250px;
+    height: 100%;
+}
+
+.news-desc{
+    padding: 10px ;
+    width: 100%;
+    min-height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+button.more{
+    background-color: var(--primary-color);
+    padding: 8px 10px;
+    margin: 5px 0 5px 2px;
+    display: block;
+    width: 50px;
+    height: 50px;
+    align-self: flex-end;
+    color: whitesmoke;
     border-radius: 10px;
-    margin: 5px auto;
-    display: inline-block;
 }
 
-.newsbox h2{
-    font-size: var(--font-20);
-    border-bottom: 1px solid gray;
+
+div.outer-box{
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 8px auto;
 }
 
-.newsbox p{
-    /* font-size: var(--regular-font); */
-    margin: 3px 0;
-}   
+div.outer-box > .content{
+    border-top: 1px solid gray;
+    padding: 10px 20px;
+}
 
-
+/* ----------------------------- Flash messages---------------------- */
 #success-box , #error-box{
     padding: 15px 5px;
     font-size: 15px;
@@ -225,6 +264,55 @@ input.invalid{
     background-color: var(--error);
 }
 
+/* ------------------------      Tab layout ------------------------------- */
+.tab {
+    display: flex;
+    justify-content: space-evenly;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+  }
+  
+  #tab-menu{
+    float: right;
+    display: block;
+  }
+  /* Style the buttons inside the tab */
+  .tab button,button.tablinks {
+    color: black;
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    display: block;
+    flex-grow: 1;
+    border-radius: 0;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #ccc;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    /* border: 1px solid #ccc; */
+    border-top: none;
+  }
+
+
+/* -----------------------------------    media quaries ----------------------------- */
 @media screen and (max-width : 960px){
     nav ul{
         display: none;
@@ -264,6 +352,10 @@ input.invalid{
     }
     .container{
         width: 100%;
+    }
+
+    .news{
+        flex-direction: column;
     }
 
 

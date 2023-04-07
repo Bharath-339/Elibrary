@@ -1,33 +1,35 @@
 <div class="navbar">
-    <nav > 
-        <a href="/">
+  <nav>
+    <a href="/">
+      <div class="logo">ELibrary</div>
+    </a>
+    <ul class="menu-links" id="menu-links">
+      <% if (currentUser ) { %>
+      <li><a href="/">home</a></li>
+      <li><a href="/news">News</a></li>
+      <li><a href="/events">Events</a></li>
+      <li><a href="#contact">contact</a></li>
+      <% } %> <% if (isAdmin) { %>
+      <li><a href="/admin">Admin</a></li>
 
-            <div class="logo">
-                ELibrary
-            </div>
-        </a>
-        <ul class="menu-links" id="menu-links">
-            <li><a href="/">home</a></li>
-            <li><a href="/news">News</a></li>
-            <li><a href="/events">Events</a></li>
-            <li><a href="#contact">contact</a></li>
-            <% if (!currentUser) { %>
-                <li><a href="/users/login">Login</a></li>
-                <li><a href="/users/signup">Sign up</a></li> 
-            <% } else{%>
-                <div class="dropdown">
+      <% } %> <% if (!currentUser) { %>
+      <li><a href="/users/login">Login</a></li>
+      <li><a href="/users/signup">Sign up</a></li>
+      <% } else{%>
+      <div class="dropdown">
+        <li class="dropdown-icon">
+          <i class="fa fa-user" aria-hidden="true"></i>
+        </li>
+        <div class="drop-list">
+          <ul class="dropdown-list">
+            <li><%= currentUser.name %></li>
+            <li><a href="/users/logout">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+      <% } %>
+    </ul>
 
-                    <li class="dropdown-icon"><i class="fa fa-user" aria-hidden="true"></i></li>
-                    <div class="drop-list">
-                        <ul class="dropdown-list">
-                            <li><%= currentUser.name %> </li>
-                            <li><a href="/users/logout">Logout</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <% } %>
-        </ul>
-
-        <i class="fa-solid fa-bars" id="menu" onClick="toggle_menu()"></i>
-    </nav>
+    <i class="fa-solid fa-bars" id="menu" onClick="toggle_menu()"></i>
+  </nav>
 </div>

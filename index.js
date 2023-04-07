@@ -17,6 +17,7 @@ const {isLoggedIn }= require('./utils/isLoggedIn');
 const userRouter = require('./routes/userRoute');
 const eventsRouter = require('./routes/eventsRouter');
 const newsRouter = require('./routes/newsRouter');
+const adminRouter = require('./routes/adminRoute');
 
 const app = express();
 
@@ -59,14 +60,23 @@ app.use((req,res,next)=>{
     // passport itself will add the user to the req object
     res.locals.currentUser = req.user;
     res.locals.success = req.flash('success');
-    res.locals.error = req.flash('error')
-    
+    res.locals.error = req.flash('error');
+    res.locals.isAdmin = false;
+    if(req.user){
+        let {username} = req.user;
+        if(username < 150){
+            res.locals.isAdmin = true;
+        }
+    }
+
     next();
 })
 
 app.use('/users',userRouter);
 app.use('/events',eventsRouter);
 app.use('/news',newsRouter);
+app.use('/admin',adminRouter);
+
 
 app.get('/',isLoggedIn,(req,res)=>{
     res.render('home',{title : "Elibrary | Home"})

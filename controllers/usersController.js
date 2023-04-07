@@ -10,6 +10,7 @@ module.exports.loginRender = (req,res)=>{
 
 
 module.exports.login =(req,res)=>{
+
     console.log(req.body);
     res.redirect('/');
 }
@@ -21,16 +22,19 @@ module.exports.signupRender = (req,res)=>{
 
 module.exports.signup = async (req,res,next)=>{
         try {
+            // console.log(req.body)
             const {email,password,username,name} = req.body;
             const newuser = new User({email,username,name});
             const registeruser  = await User.register(newuser,password);
+           
             req.login(registeruser, err => {
                 if (err) return next(err);
-                req.flash('success', 'Welcome to Back!');
+                req.flash('success', 'Welcome to Bmu Elibrary!');
                 res.redirect('/');
             })
             
         } catch (e) {
+            console.log(e)
             req.flash('error', e.message);
             res.redirect('signup');
         }

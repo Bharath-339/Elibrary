@@ -1,6 +1,6 @@
 const pattern = {
     username : /^[0-9]{6}$/,
-    name : /^[a-z\d]{2,15}$/i,
+    name : /^[a-z\d\s]{2,15}$/i,
     password : /^[\w]{8,}$/i,
     email : /^([a-z]+)\.([a-z]+)\.(([0-9]{2})([a-z]{3}))@bmu.edu.in$/i
 }
@@ -25,12 +25,17 @@ inputs.forEach((input)=>{
 
 
 function isFormvalid(){
-    inputs.forEach((input)=>{
-        if(!input.classList.contains('valid')){
-            return false
+    let enroll = document.getElementById('username');
+    let username = document.getElementById('name');
+    let email = document.getElementById('email');
+    let password = document.getElementById('password')
+   if(regex['username'].test(enroll.value) && regex['name'].test(username.value) &&
+        regex['password'].test(password.value) && regex['email'].test(email.value)){
+
+            return false;
+        }else{
+            document.getElementById("form").submit();
         }
-        return true;
-    })
 }
 
 setInterval(()=>{
@@ -42,12 +47,6 @@ setInterval(()=>{
 },1000);
 
 
-setInterval(()=>{
-    var button = document.querySelector('button')
-    if(!isFormvalid()){
-        button.setAttribute = 'disabled'
-    }
-},1000);
 
 
 
