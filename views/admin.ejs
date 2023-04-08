@@ -1,70 +1,136 @@
 <%= layout('layouts/boilerplate') %>
 
-<h1 class="center-text main-heading">Admin page </h1>
+<h1 class="center-text main-heading">Admin page</h1>
 
-  <!-- <div>
+<!-- <div>
     <button class="" id="tab-menu"><i class="fa-solid fa-bars"></i></button>
   </div> -->
 <div class="tab">
-    <button class="tablinks" onclick="openTab(event, 'news')">News</button>
-    <button class="tablinks" onclick="openTab(event, 'events')">Event</button>
-    <button class="tablinks" onclick="openTab(event, 'usersList')">Users</button>
-  </div>
-  
-  <div id="news" class="tabcontent">
-        <h2 class="center-text main-heading">ADD NEWS</h2>
-    <div class="formwrapper">
-      <form action="/users/signup" method="post" id="form">
-        <section    class="input-control">
-            <label for="title">Title</label>
-            <input type="text" name="title" id="title"  required>
-        </section>
+  <button class="tablinks" onclick="openTab(event, 'news')">News</button>
+  <button class="tablinks" onclick="openTab(event, 'events')">Event</button>
+  <button class="tablinks" onclick="openTab(event, 'users')">users</button>
+</div>
 
-        <section    class="input-control">
-          <label for="source">source</label>
-          <input type="source" name="source"  id="source" required >
+<div id="news" class="tabcontent active" style="display: block;">
+  <!-- form to create news -->
+  <h2 class="center-text main-heading">ADD NEWS</h2>
+  <div class="formwrapper">
+    <form
+      action="/admin/news/new"
+      method="post"
+      id="form"
+      enctype="multipart/form-data"
+    >
+      <section class="input-control">
+        <label for="title">Title</label>
+        <input type="text" name="news[title]" id="title" required />
       </section>
 
-        <section    class="input-control">
-            <label for="description">description </label>
-            <input type="textarea" name="description" id="description" required>
-        </section>
+      <section class="input-control">
+        <label for="source">source</label>
+        <input type="text" name="news[source]" id="source" required />
+      </section>
 
-        <section    class="input-control">
-            <label for="content">content</label>
-            <input type="textarea" name="content" id="content" required>
-        </section>
-    
-        <button style="float:right;">Submit</button>
+      <section class="input-control">
+        <label for="description">description </label>
+        <input
+          type="textarea"
+          name="news[description]"
+          id="description"
+          required
+        />
+      </section>
+      <section class="input-control">
+        <label for="image">image </label>
+        <input type="file" name="image-data" id="image" required />
+      </section>
+
+      <section class="input-control">
+        <label for="content">content</label>
+        <input type="textarea" name="news[content]" id="content" required />
+      </section>
+
+      <button style="float: right">Submit</button>
     </form>
-    </div>
   </div>
-  
-  <div id="events" class="tabcontent">
-    <h3>Paris</h3>
-    <p>Paris is the capital of France.</p> 
+</div>
+
+<div id="events" class="tabcontent">
+  <!-- form to create events -->
+  <h2 class="center-text main-heading">create new event</h2>
+  <div class="formwrapper">
+    <form
+      action="/admin/events/new"
+      method="post"
+      id="form"
+      enctype="multipart/form-data"
+    >
+      <section class="input-control">
+        <label for="title">Title</label>
+        <input type="text" name="event[title]" id="title" required />
+      </section>
+
+      <section class="input-control">
+        <label for="organizer">Organizer</label>
+        <input type="organizer" name="event[organizer]" id="organizer" required />
+      </section>
+
+      <section class="input-control">
+        <label for="description">description </label>
+        <input
+          type="textarea"
+          name="event[description]"
+          id="description"
+          required
+        />
+      </section>
+      <section class="input-control">
+        <label for="image">image </label>
+        <input type="file" name="image-data" id="image"  />
+      </section>
+
+      <section class="input-control">
+        <label for="venue">venue</label>
+        <input type="textarea" name="event[venue]" id="venue" required />
+      </section>
+      <button style="float: right">Submit</button>
+    </form>
   </div>
-  
-  <div id="usersList" class="tabcontent">
-    <h3>Tokyo</h3>
-    <p>Tokyo is the capital of Japan.</p>
-  </div>
+</div>
 
+<div id="users" class="tabcontent">
 
+   
+        <table id="users-list">
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>EMail</th>
+              <th>ENrollment Number</th>
+            </tr>
+          </thead>
+          <tbody id="users-table">
+              
+          </tbody>
+        </table>
+   
+</div>
 
-  <script>
-    function openTab(evt, cityName) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-      document.getElementById(cityName).style.display = "block";
-      evt.currentTarget.className += " active";
+<script>
+  function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
     }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
 </script>
-       
+
+
+<script src="scripts/users_api_data.js"></script>

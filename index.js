@@ -1,3 +1,7 @@
+if(process.env.NODE_ENV !== 'production'){
+    require('dotenv').config();
+}
+
 const express = require('express')
 const mongoose = require('mongoose');
 const mongoconenction = require('./models/mongoConnect');
@@ -11,13 +15,9 @@ const flash = require('connect-flash');
 const User = require('./models/UserSchema');
 const ExpressError = require('./utils/ExpressError');
 const {isLoggedIn }= require('./utils/isLoggedIn');
-
-
-// user routes
-const userRouter = require('./routes/userRoute');
-const eventsRouter = require('./routes/eventsRouter');
-const newsRouter = require('./routes/newsRouter');
-const adminRouter = require('./routes/adminRoute');
+const multer  = require('multer')
+const MongoStore = require('connect-mongo');
+const cors = require('cors')
 
 const app = express();
 
@@ -39,7 +39,11 @@ const sessionConifg ={
     cookie :{
         httpOnly: true,
         secure : false
-    }
+    },
+    store: MongoStore.create({
+        mongoUrl: 'mongodb://127.0.0.1:27017/Elibrary',
+       autoRemove : 'disabled'
+      })
 }
 
 
@@ -72,11 +76,9 @@ app.use((req,res,next)=>{
     next();
 })
 
-app.use('/users',userRouter);
-app.use('/events',eventsRouter);
-app.use('/news',newsRouter);
-app.use('/admin',adminRouter);
-
+app.use(cors());
+// router
+app.use('/',require('./routes/index'));
 
 app.get('/',isLoggedIn,(req,res)=>{
     res.render('home',{title : "Elibrary | Home"})
