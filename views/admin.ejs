@@ -1,6 +1,7 @@
 <%= layout('layouts/boilerplate') %>
 
-<h1 class="center-text main-heading">Admin page</h1>
+<div>
+  <h1 class="center-text main-heading">Admin page</h1>
 
 <!-- <div>
     <button class="" id="tab-menu"><i class="fa-solid fa-bars"></i></button>
@@ -8,9 +9,10 @@
 <div class="tab">
   <button class="tablinks" onclick="openTab(event, 'news')">News</button>
   <button class="tablinks" onclick="openTab(event, 'events')">Event</button>
-  <button class="tablinks" onclick="openTab(event, 'users')">users</button>
+  <!-- <button class="tablinks" onclick="openTab(event, 'users')">users</button> -->
 </div>
 
+</div>
 <div id="news" class="tabcontent active" style="display: block;">
   <!-- form to create news -->
   <h2 class="center-text main-heading">ADD NEWS</h2>
@@ -33,12 +35,11 @@
 
       <section class="input-control">
         <label for="description">description </label>
-        <input
-          type="textarea"
-          name="news[description]"
-          id="description"
-          required
-        />
+        <textarea type="text"
+        name="news[description]"
+        id="description"
+        required rows="2" style="width: 100%;" maxlength="60">
+        </textarea>
       </section>
       <section class="input-control">
         <label for="image">image </label>
@@ -47,7 +48,12 @@
 
       <section class="input-control">
         <label for="content">content</label>
-        <input type="textarea" name="news[content]" id="content" required />
+        <!-- <input type="textarea" name="news[content]" id="content" required /> -->
+        <textarea type="text"
+        name="news[content]"
+        id="content"
+        required rows="1" style="width: 100%;" maxlength="60">
+        </textarea>
       </section>
 
       <button style="float: right">Submit</button>
@@ -81,7 +87,7 @@
           type="textarea"
           name="event[description]"
           id="description"
-          required
+          required maxlength="60"
         />
       </section>
       <section class="input-control">

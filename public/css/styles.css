@@ -28,6 +28,9 @@ body{
 
     --font-20 : 2rem;
     --font-25 : 2.5rem;
+
+    --shadow :rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    --shadow-hover : rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 
@@ -123,17 +126,18 @@ ul.dropdown-list{
     display: none;
 }
 
-button{
+.formwrapper > form > button{
     font-size: var(--font-20);
     padding: 15px 30px;
     background-color: var(--primary-color);
     color: whitesmoke;
     border-radius: 10px;
     border: none;
+    margin: 20px 0;
 }
 
 .formwrapper{
-    width: 45%;
+    width: 30%;
     min-width: 200px;
     margin: 30px auto;
 }
@@ -145,7 +149,7 @@ label{
     font-weight: 400;
 }
 
-input{
+input,textarea{
     border:1px solid rgb(181, 179, 179);
     width: 100%;
     padding: 5px 2px;
@@ -176,7 +180,7 @@ input.invalid{
 }
 
 .directions{
-    font-size: 10px;
+    font-size: 1rem;
     margin: 0;
     color: gray;
 }
@@ -219,6 +223,7 @@ input.invalid{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    gap:5px;
 }
 
 button.more{
@@ -233,13 +238,44 @@ button.more{
     border-radius: 10px;
 }
 
+button.read-more{
+    background-color: var(--primary-color);
+    padding: 8px 8px;
+    margin: 5px 0 5px 2px;
+    display: block;
+    width: 120px;       
+    height: 50px;
+    color: whitesmoke;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+
+
+@media (min-width: 768px) {
+  .read-more {
+    padding: 14px 22px;
+    width: 176px;
+  }
+}
+
+
+
+.button-div{
+    display: flex;
+    justify-content: flex-start;
+}
 
 div.outer-box{
     width: 100%;
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
+    box-shadow: var(--shadow);
     border-radius: 10px;
     overflow: hidden;
     margin: 8px auto;
+}
+div.outer-box:hover{
+    box-shadow: var(--shadow-hover);
 }
 
 div.outer-box > .content{
@@ -344,11 +380,19 @@ tbody > tr:nth-child(2n){
     }    
 .card{
         width: 250px;
-        border: 1px solid gray;
+        /* border: 1px solid gray; */
+        /* box-shadow: 2px 2px 2px ; */
+        box-shadow: var(--shadow);
         border-radius: 8px;
         overflow: hidden;
         margin: 15px;
+        transition: all 0.3s ease-in;
     }
+
+    .card:hover{
+        box-shadow: var(--shadow-hover);
+    }
+
 
     .card-img{
         max-width: 100%;
@@ -380,9 +424,10 @@ tbody > tr:nth-child(2n){
     }
 
     button.read-more{
-        font-size: 1.2rem;
-        max-width:150px;
+        font-size: 1rem;
+        max-width:120px;
         display: block;
+        padding: 10px;
     }
 /* -----------------------------------    media quaries ----------------------------- */
 @media screen and (max-width : 960px){
@@ -412,9 +457,26 @@ tbody > tr:nth-child(2n){
     .evts-container{
         justify-content: space-around;
     }
+
+    .formwrapper{
+        width: 75%;
+        padding: 10px 15px;
+    }
+
+    .formwrapper > form > input{
+        max-width: 150px;
+    }
+
+    .formwrapper > form > button{
+        font-size: 1.3rem;
+    
+    }
 }
 
 @media screen and (max-width : 800px) {
+    html{
+        font-size: 60%;
+    }
     :root{
         --regular-font : 1rem;
         --big-font : 2rem;
@@ -437,4 +499,10 @@ tbody > tr:nth-child(2n){
         justify-content: center;
     }
 
+}
+
+@media screen and (max-width : 250px) {
+    html{
+        font-size: 40%;
+    }
 }

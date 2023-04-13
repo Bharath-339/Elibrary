@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const User = require('../models/UserSchema');
 const isLoggedIn = require('../utils/isLoggedIn');
-
+const verifyMail = require('../utils/sendVerifymail');
 
 
 module.exports.loginRender = (req,res)=>{
@@ -9,9 +9,9 @@ module.exports.loginRender = (req,res)=>{
 }
 
 
-module.exports.login =(req,res)=>{
-
-    console.log(req.body);
+module.exports.login = async (req,res)=>{
+    const user = await User.findOne({username : req.body.username});
+    console.log(user);
     res.redirect('/');
 }
 
@@ -26,12 +26,10 @@ module.exports.signup = async (req,res,next)=>{
             const {email,password,username,name} = req.body;
             const newuser = new User({email,username,name});
             const registeruser  = await User.register(newuser,password);
-           
-            req.login(registeruser, err => {
-                if (err) return next(err);
-                req.flash('success', 'Welcome to Bmu Elibrary!');
-                res.redirect('/');
-            })
+            
+            await verifyMail(name,email,registeruser._id);
+                req.flash('success', 'An email has been sent to your mail adderess, please verify');
+                res.redirect('signup');
             
         } catch (e) {
             console.log(e)
@@ -39,6 +37,29 @@ module.exports.signup = async (req,res,next)=>{
             res.redirect('signup');
         }
  }
+
+
+module.exports.verify = async(req,res)=>{
+    try{
+        const {id} = req.query;
+
+       const updated_user= await User.updateOne({_id : id},{$set : {    is_verified : true}});
+       if(updated_user.is_verified == true){
+            // req.login(updated_user, err => {
+            //     if (err) return next(err);
+                req.flash('success', 'Your email has been verified please login');
+               return  res.redirect('login');
+            // })
+       }
+
+        req.flash('success', 'Your email has been verified please login');
+        res.redirect('signup');
+
+    }catch(err){
+
+    }
+}
+
 
 
 module.exports.logout = (req,res,next)=>{

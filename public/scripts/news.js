@@ -1,4 +1,4 @@
-$(document).ready(function(){
+{$(document).ready(function(){
   apikey = "c823a0f0eb0fc7771ab2fce283270e32";
   url =
     "https://gnews.io/api/v4/search?q=example&lang=en&country=us&max=10&apikey=" +
@@ -15,7 +15,7 @@ $(document).ready(function(){
 
             <p>${data.description}</p>
 
-            <small>${data.source.name}</small>
+            <small>Source : ${data.source.name}</small>
             <button class="more"><i class="fa-solid fa-arrow-down-long"></i></button>
         </div>
     </div>
@@ -51,3 +51,55 @@ $(document).ready(function(){
 
 
 });
+
+
+
+const url2 = 'http://localhost:5000/api/news/data';
+
+
+function card(data,url){
+        return (`
+        <div class="card" id = "${data._id}">
+        <div class="card-img" style="background-image: url("${url}");">
+        <img src="${url}" alt="">
+        </div>
+        <div class="card-content">
+                <h2 class="card-title">
+                    ${data.title}
+                </h2>
+    
+                <p class="event-info">
+                    ${data.description}
+                </p>
+                <p class="event-venue">
+                    ${data.content}
+                </p>
+                <p class="event-venue">
+                    Source : ${data.source}
+                </p>
+    
+              <div class='button-div'>
+                  <button class="read-more">
+                          Read More
+                  </button>
+              </div>
+            </div>
+        </div>
+        `)
+}
+function createTable(info){
+    const {data} = info;
+    data.forEach(element => {
+        const images = element.images;
+        console.log(images[0].url)
+        $('#evts-container').append(card(element,images[0].url))
+    });
+}
+fetch(url2)
+.then((res,rej)=>{
+    return res.json();
+})
+.then((data)=>{
+    createTable(data);
+})
+}

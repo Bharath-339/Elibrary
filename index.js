@@ -15,7 +15,7 @@ const flash = require('connect-flash');
 const User = require('./models/UserSchema');
 const ExpressError = require('./utils/ExpressError');
 const {isLoggedIn }= require('./utils/isLoggedIn');
-const multer  = require('multer')
+const multer  = require('multer');
 const MongoStore = require('connect-mongo');
 const cors = require('cors')
 

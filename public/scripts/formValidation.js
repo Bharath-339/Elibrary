@@ -10,6 +10,7 @@ function validate(field,regex){
     let test = regex.test(field.value);
    if(test){
         field.className = "valid"
+        field.setAttribute("isValid", "true");
     }else{
         field.className = "invalid"
     }
@@ -24,19 +25,23 @@ inputs.forEach((input)=>{
 })
 
 
-function isFormvalid(){
-    let enroll = document.getElementById('username');
-    let username = document.getElementById('name');
-    let email = document.getElementById('email');
-    let password = document.getElementById('password')
-   if(regex['username'].test(enroll.value) && regex['name'].test(username.value) &&
-        regex['password'].test(password.value) && regex['email'].test(email.value)){
-
-            return false;
-        }else{
-            document.getElementById("form").submit();
-        }
-}
+function isFormvalid() {
+    const inputs = document.querySelectorAll("input");
+    let valid = true;
+    
+    inputs.forEach((input) => {
+      if (input.getAttribute("isValid") === "false") {
+        valid = false;
+      }
+    });
+  
+    if (valid) {
+      document.getElementById("form").submit();
+    } else {
+      return false;
+    }
+  }
+  
 
 setInterval(()=>{
     inputs.forEach((input)=>{
