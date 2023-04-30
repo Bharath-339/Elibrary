@@ -11,7 +11,7 @@ const {isVerified} = require('../utils/isVerified');
 
 router.get('/login',usercontroller.loginRender)
 
-router.post('/login',isVerified,passport.authenticate('local',{failureFlash : true,failureRedirect : '/users/login'}),usercontroller.login);
+router.post('/login',passport.authenticate('local',{failureFlash : true,failureRedirect : '/users/login'}),isVerified,usercontroller.login);
 
 router.get('/signup',usercontroller.signupRender)
 

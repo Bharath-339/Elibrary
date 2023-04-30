@@ -9,7 +9,7 @@
 <div class="tab">
   <button class="tablinks" onclick="openTab(event, 'news')">News</button>
   <button class="tablinks" onclick="openTab(event, 'events')">Event</button>
-  <!-- <button class="tablinks" onclick="openTab(event, 'users')">users</button> -->
+  <button class="tablinks" onclick="openTab(event, 'articles')">Articles</button>
 </div>
 
 </div>
@@ -104,23 +104,53 @@
   </div>
 </div>
 
-<div id="users" class="tabcontent">
+<div id="articles" class="tabcontent">
+
+  <div class="formwrapper">
+    <form
+      action="/admin/articles/new"
+      method="post"
+      id="form"
+      enctype="multipart/form-data"
+    >
+      <section class="input-control">
+        <label for="title">Title</label>
+        <input type="text" name="article[title]" id="title" required />
+      </section>
+
+      <section class="input-control">
+        <label for="source">Published by</label>
+        <input type="text" name="article[source]" id="source" required />
+      </section>
+
+      <section class="input-control">
+        <label for="description">description </label>
+        <textarea type="text"
+        name="article[description]"
+        id="description"
+        required rows="2" style="width: 100%;" maxlength="60">
+        </textarea>
+      </section>
+
+      <section class="input-control">
+        <label for="pdf">File </label>
+        <input type="file" name="pdf" id="pdf" required />
+      </section>
+
+      <button style="float: right">Submit</button>
+    </form>
+  </div>
 
    
-        <table id="users-list">
-          <thead>
-            <tr>
-              <th>Username</th>
-              <th>EMail</th>
-              <th>ENrollment Number</th>
-            </tr>
-          </thead>
-          <tbody id="users-table">
-              
-          </tbody>
-        </table>
-   
 </div>
+
+
+
+
+
+
+
+
 
 <script>
   function openTab(evt, tabName) {

@@ -208,12 +208,11 @@ input.invalid{
     flex-basis: 40%;
     min-width: 150px;
     min-height: 50px;
-    /* max-height:200px; */
+    max-height:150px;
 }
 .news-img > img{
     width: 100%;
-    max-height:250px;
-    height: 100%;
+    max-height:150px;
 }
 
 .news-desc{
@@ -273,6 +272,7 @@ div.outer-box{
     border-radius: 10px;
     overflow: hidden;
     margin: 8px auto;
+    cursor: pointer;
 }
 div.outer-box:hover{
     box-shadow: var(--shadow-hover);
@@ -387,22 +387,24 @@ tbody > tr:nth-child(2n){
         overflow: hidden;
         margin: 15px;
         transition: all 0.3s ease-in;
+        cursor: pointer;
     }
 
     .card:hover{
         box-shadow: var(--shadow-hover);
     }
 
-
+    .news-img > img{
+        width: 100%;
+        max-height:150px;
+    }
     .card-img{
         max-width: 100%;
-        background-size: contain;
-        background-position:top;
         height: 150px;
         overflow: hidden;
     }
-    .card-img img{
-        max-width: 100%;
+    .card-img > img{
+        width: 100%;
     }
     .card-content{
         display: flex;
@@ -471,6 +473,10 @@ tbody > tr:nth-child(2n){
         font-size: 1.3rem;
     
     }
+
+    #evts-container{
+        justify-content: center;
+    }
 }
 
 @media screen and (max-width : 800px) {
@@ -495,10 +501,6 @@ tbody > tr:nth-child(2n){
     .news{
         flex-direction: column;
     }
-    .evts-container{
-        justify-content: center;
-    }
-
 }
 
 @media screen and (max-width : 250px) {

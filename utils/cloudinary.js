@@ -11,11 +11,23 @@ const storage = new CloudinaryStorage({
   cloudinary,
   params: {
     folder: "/Elibrary",
-    allowedFormats: ["jpeg", "png", "jpg"],
+    allowedFormats: ["jpeg", "png", "jpg","pdf"],
+  },
+});
+
+const Pdfstorage = new CloudinaryStorage({
+  cloudinary,
+  filename: function(req, file, callback) {
+    callback(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+  },
+  params: {
+    folder: "/Elibrary/articles",
+    allowedFormats: ["pdf","word"],
   },
 });
 
 module.exports = {
   cloudinary,
   storage,
+  Pdfstorage
 };
