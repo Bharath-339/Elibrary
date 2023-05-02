@@ -1,23 +1,62 @@
-<%= layout('layouts/boilerplate') %> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/login.css">
+  <link rel="stylesheet" href="/css/navbar.css">
 
-<h1 class="center-text" style="margin-top: 30px;">Login form</h1>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+  integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+<body>
 
 
-<div class="formwrapper">
+  <%- include('partials/flash') %>
 
-  <form action="/users/login" method="post">
-    <section>
-      <label for="username">Enrollment Number</label>
-      <input type="number" name="username" id="username" required/>
-    </section>
-    <section>
-      <label for="password">Password</label>
-      <input type="password" name="password" id="password" required/>
-    </section>
 
-    <button>Log In</button>
-  </form>
+  <div class="box-container-img">
+    <div class="formwrapper">
+      
+      <h1 class="center-text" style="margin-top: 30px;">Welcome! Please login to continue.
+      </h1>
+      <form action="/users/login" method="post">
+        <section>
+          <label for="username">Enrollment Number</label>
+          <input type="number" name="username" id="username" required/>
+        </section>
+        <section>
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" required/>
+        </section>
+    
+        <button class="button-64" role="button"><span class="text">Login</span></button>
+      </form>
+    
+      <p style="font-size: 1.2rem;">don't have an account &rarr;  <a href="/users/signup"  class="link">Signup</a>  </p>
+    </div>
+  </div>
 
-  <p style="font-size: 1.2rem;">don't have an account   <a href="/users/signup" >Signup</a>  </p>
-</div>
+
+
+  <script src="/scripts/script.js"></script>
+
+
+</body>
+</html>
+
+
+
+
+
 

@@ -1,44 +1,69 @@
- <%= layout('layouts/boilerplate') %> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/login.css">
+  <link rel="stylesheet" href="/css/navbar.css">
+
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+  integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+<body>
 
 
-<h1 class="center-text" style="margin-top: 30px;">Register</h1>
 
-<div class="formwrapper">
-    <div class="success">
-        <%= success %>
-      </div>
-      <div class="error">
-        <%= error %>
-      </div>
-    <form action="/users/signup" method="post" id="form">
-        <section    class="input-control">
-            <label for="username">Enrollment Number </label>
-            <input type="number" name="username" id="username" isValid = "false" minlength="6" maxlength="6" required>
+    <%- include('partials/flash') %>
 
-            <div class="directions">Enrollment number must be only six digits</div>
-        </section>
-        <section    class="input-control">
-            <label for="name">username </label>
-            <input type="text" name="name" id="name" isValid = "false" required>
-            <div class="directions">Username must be minimum 2 characters and max 15 characters </div>
-        </section>
-        <section    class="input-control">
-            <label for="email">Email id</label>
-            <input type="email" name="email" id="email" isValid = "false" required>
-            <div class="directions">Email id must end with domain bmu.edu.in</div>
-        </section>
-        <section    class="input-control">
-            <label for="password">Password</label>
-            <input type="password" name="password"  id="password" isValid = "false" required >
-            <div class="directions">Password must be altmost 8 characters</div>
-        </section>
-    
-        <button  onclick="return isFormvalid()">Sign up </button>
-    </form>
-</div>
+
+    <div class="box-container-img">
+        <div class="formwrapper">
+            <h1 class="center-text" style="margin-top: 30px;">Register</h1>
+            <form action="/users/signup" method="post" id="form">
+                <section    class="input-control">
+                    <label for="username">Enrollment Number </label>
+                    <input type="number" name="username" id="username" isValid = "false" minlength="6" maxlength="6" required>
+        
+                    <div class="directions">Enrollment number must be only six digits</div>
+                </section>
+                <section    class="input-control">
+                    <label for="name">username </label>
+                    <input type="text" name="name" id="name" isValid = "false" required>
+                    <div class="directions">Username must be minimum 2 characters and max 15 characters </div>
+                </section>
+                <section    class="input-control">
+                    <label for="email">Email id</label>
+                    <input type="email" name="email" id="email" isValid = "false" required>
+                    <div class="directions">Email id must end with domain bmu.edu.in</div>
+                </section>
+                <section    class="input-control">
+                    <label for="password">Password</label>
+                    <input type="password" name="password"  id="password" isValid = "false" required >
+                    <div class="directions">Password must be altmost 8 characters</div>
+                </section>
+                
+                <button class="button-64" role="button" onclick="return isFormvalid()"><span class="text" >Sign up</span></button>
+                <!-- <button  >Sign up </button> -->
+            </form>
+
+            <p style="font-size: 1.2rem;">Already Registered &rarr; <a href="/users/login" class="link" >Login</a>  </p>
+        </div>
+    </div>
 
 
 
 
 <script src="/scripts/formValidation.js"></script>
 
+</body>
+</html>

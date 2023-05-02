@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
     <link rel="stylesheet" href="/css/styles.css" />
-    <!-- <link rel="stylesheet" href="/css/news.style" /> -->
+    <link rel="stylesheet" href="/css/navbar.css" />
 
     <link
       rel="stylesheet"
@@ -19,9 +19,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </head>
   <body>
-    <%- include('../partials/navbar') %> <%- include('../partials/flash') %> <%-
-    body %>
+    <%- include('../partials/navbar') %>
+    
+    <%- include('../partials/flash') %>
+    
+    <%-body %>
 
+
+
+
+    <%- include('../partials/footer') %>
     <script src="/scripts/script.js"></script>
   </body>
 </html>

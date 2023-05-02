@@ -1,11 +1,7 @@
 <%= layout('layouts/boilerplate') %>
 
 <div>
-  <h1 class="center-text main-heading">Admin page</h1>
 
-<!-- <div>
-    <button class="" id="tab-menu"><i class="fa-solid fa-bars"></i></button>
-  </div> -->
 <div class="tab">
   <button class="tablinks" onclick="openTab(event, 'news')">News</button>
   <button class="tablinks" onclick="openTab(event, 'events')">Event</button>
@@ -15,7 +11,11 @@
 </div>
 <div id="news" class="tabcontent active" style="display: block;">
   <!-- form to create news -->
-  <h2 class="center-text main-heading">ADD NEWS</h2>
+  <div class="flex-center">
+   
+    <h2 class="center-text main-heading">ADD NEWS</h2>
+  </div>
+
   <div class="formwrapper">
     <form
       action="/admin/news/new"
@@ -63,7 +63,10 @@
 
 <div id="events" class="tabcontent">
   <!-- form to create events -->
-  <h2 class="center-text main-heading">create new event</h2>
+  <div class="flex-center">
+    <h2 class="center-text main-heading">Add event</h2>
+  </div>
+
   <div class="formwrapper">
     <form
       action="/admin/events/new"
@@ -105,6 +108,11 @@
 </div>
 
 <div id="articles" class="tabcontent">
+
+  <div class="flex-center">
+    <h2 class="center-text main-heading">ADD Article</h2>
+   
+  </div>
 
   <div class="formwrapper">
     <form

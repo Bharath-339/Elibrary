@@ -8,6 +8,8 @@ s3UploadV2 = async (file)=>{
       Bucket : process.env.awsBucket,
       Key : `${uuid()}-${file.originalname}`,
       Body : file.buffer,
+      // ContentDisposition:"attachment",
+      ContentType:"application/pdf"
     };
     console.log("This are params " , param);
     return await s3.upload(param).promise();

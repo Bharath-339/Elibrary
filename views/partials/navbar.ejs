@@ -1,14 +1,16 @@
 <div class="navbar">
   <nav>
-    <a href="/">
-      <div class="logo">ELibrary</div>
+    <a href="/" id="logo-link">
+      <div class="logo-img">
+        <img src="images/logo.png" alt="">
+      </div>
+      <div class="logo">ELib</div>
     </a>
     <ul class="menu-links" id="menu-links">
       <% if (currentUser ) { %>
       <li><a href="/">home</a></li>
       <li><a href="/news">News</a></li>
       <li><a href="/events">Events</a></li>
-      <!-- <li><a href="#contact">contact</a></li> -->
       <% } %> <% if (isAdmin) { %>
       <li><a href="/admin">Admin</a></li>
 

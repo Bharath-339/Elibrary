@@ -7,31 +7,30 @@
     apikey;
 
   let newsHtml = function (data,i) {
-    return $(`<div class="outer-box">
-    <div class="news">
+    return $(`
+    <div class="card news-card">
         <div class="news-img">
             <img src="${data.image}" alt="">
         </div>
         <div class="news-desc">
-            <h1>${data.title}</h1>
+            <span>${data.title}</span>
 
-            <p>${data.description}</p>
+            <p>${data.description.slice(0,150)}</p>
 
             <small>Source : ${data.source.name}</small>
-            <button class="more"><i class="fa-solid fa-arrow-down-long"></i></button>
+      
         </div>
     </div>
 
     <div class="content" style="display: none;"  id="content-${i}">
                 ${data.content}
-    </div>
-</div>`);
+    </div>`);
   };
 
-  $('#newsdesk').on('click','div.outer-box',function(){
-    let children = $(this).children()
-    $(children[1]).toggle()
-  })
+  // $('#newsdesk').on('click','.news-card',function(){
+  //   let children = $(this).children()
+  //   $(children[1]).toggle()
+  // })
   
   let createNews = function (data) {
    let box =  $(".newsdesk");
@@ -93,8 +92,8 @@ function card(data,url){
 function createTable(info){
     const {data} = info;
     if(data && data.length){
-      const head = `<h1 class="center-text main-heading" >Today's university News</h1>`
-      $('.container').prepend(head)
+      const head = `<span class="center-text main-heading" >Today's university News</span>`
+      $('#u-news').prepend(head)
     }
     data.forEach(element => {
         const images = element.images;
@@ -145,8 +144,8 @@ function Articlecard(data){
 
 function createArticles(data){
     if(data && data.length){
-      const head = `<h1 class="center-text main-heading" >Articles</h1>`
-      $('#articles-container').prepend(head)
+      const head = `<span class="center-text main-heading" >Articles</span>`
+      $('#articles').prepend(head)
     }
     // console.log(info)
     data.forEach(element => {
