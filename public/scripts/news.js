@@ -188,11 +188,4 @@ fetch(url3)
 
 
 
-
-
-function getData(key){
-
-}
-
-
 }

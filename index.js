@@ -84,10 +84,26 @@ app.get('/',isLoggedIn,(req,res)=>{
     res.render('home',{title : "Elibrary | Home"})
 })
 
+app.get('/search',(req,res)=>{
+    const  key = req.query.search;
+    const url = 'https://www.googleapis.com/books/v1/volumes?q=' + key;
+    fetch(url)
+        .then((res,rej)=>{
+            return res.json();
+        })
+        .then((data)=>{
+            res.render('search',{title : `Elibrary | ${key}`,data : data.items ,key})
+            // res.send(data.items)
+        })
+})
+
+
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found', 404))
 })
+
+
 
 
 app.use((err,req,res,next)=>{

@@ -1,70 +1,301 @@
 <%= layout('layouts/boilerplate') %>
 
 <div class="search-wrapper">
-    <div class="search-box">
-       <form action="" id="search-form">
-        <input type="text" id="" placeholder="Search" name="search">
-        <!-- <i class="fa-regular fa-magnifying-glass"></i> -->
-        <button>
-            <i class="fa-solid fa-magnifying-glass"></i>
-
-        </button>
-       </form>
-    </div>
+  <div class="search-box">
+    <form action="/search" id="search-form" method="get">
+      <input type="text" id="" placeholder="Search" name="search" />
+      <!-- <i class="fa-regular fa-magnifying-glass"></i> -->
+      <button>
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </form>
+  </div>
 </div>
-
 
 <div class="container">
+  <div class="flex-center">
+    <span class="main-heading"> New arrivals </span>
+  </div>
 
-    <div class="flex-center">
-        <span class="main-heading">
-            New arrivals
-        </span>
+  <div class="flex-container">
+    <div class="bookcard">
+      <div class="book-img">
+        <img src="/images/book1.jpeg" alt="book1" />
+      </div>
+      <div class="details">
+        <h1 class="">Rich dad poor dad</h1>
+        <span>Author : Robert Kiyosaki</span> 
+        <div>
+          <span>Rating : </span>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+      </div>
     </div>
-
-
-    <div class="flex-container">
-        <div class="bookcard">
-            <div class="book-img ">
-                <img src="/images/book1.jpeg" alt="book1">
-            </div>
-            <div class="details">
-                <h1 class="">Rich dad poor dad</h1>
-                <span>Rating</span>
-            </div>
+    <div class="bookcard">
+      <div class="book-img">
+        <img src="/images/java.jpeg" alt="book1" />
+      </div>
+      <div class="details">
+        <h1 class="">Java programming</h1>
+        <span>Author : Herbert schildt</span> 
+        <div>
+          <span>Rating : </span>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star-sharp-half-stroke"></i>
         </div>
-        <div class="bookcard">
-            <div class="book-img ">
-                <img src="/images/book1.jpeg" alt="book1">
-            </div>
-            <div class="details">
-                <h1 class="">Rich dad poor dad</h1>
-                <span>Rating</span>
-            </div>
-        </div>
-        <div class="bookcard">
-            <div class="book-img ">
-                <img src="/images/book1.jpeg" alt="book1">
-            </div>
-            <div class="details">
-                <h1 class="">Rich dad poor dad</h1>
-                <span>Rating</span>
-            </div>
-        </div>
-        <div class="bookcard">
-            <div class="book-img ">
-                <img src="/images/book1.jpeg" alt="book1">
-            </div>
-            <div class="details">
-                <h1 class="">Rich dad poor dad</h1>
-                <span>Rating</span>
-            </div>
-        </div>
-
+      </div>
     </div>
+    <div class="bookcard">
+      <div class="book-img">
+        <img src="/images/python.jpeg" alt="book1" />
+      </div>
+      <div class="details">
+        <h1 class="">python programming</h1>
+        <span>Author : </span> 
+        <div>
+          <span>Rating : </span>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+      </div>
+    </div>
+    <div class="bookcard">
+      <div class="book-img">
+        <img src="/images/deep.jpeg" alt="book1" />
+      </div>
+      <div class="details">
+        <h1 class="">deep learning</h1>
+
+        <span>Author : S. Kevin Zhou</span> 
+        <div>
+          <span>Rating : </span>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star-sharp-half-stroke"></i>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
+<div class="container">
+  <div class="flex-center">
+    <span class="main-heading"> Trending </span>
+  </div>
+
+  <div class="flex-container">
+    <div class="bookcard">
+      <div class="book-img">
+        <img src="/images/book1.jpeg" alt="book1" />
+      </div>
+      <div class="details">
+        <h1 class="">Rich dad poor dad</h1>
+        <span>Author : Robert Kiyosaki</span> 
+        <div>
+          <span>Rating : </span>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+      </div>
+    </div>
+    <div class="bookcard">
+      <div class="book-img">
+        <img src="/images/java.jpeg" alt="book1" />
+      </div>
+      <div class="details">
+        <h1 class="">Java programming</h1>
+        <span>Author : Herbert schildt</span> 
+        <div>
+          <span>Rating : </span>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star-sharp-half-stroke"></i>
+        </div>
+      </div>
+    </div>
+    <div class="bookcard">
+      <div class="book-img">
+        <img src="/images/python.jpeg" alt="book1" />
+      </div>
+      <div class="details">
+        <h1 class="">python programming</h1>
+        <span>Author : </span> 
+        <div>
+          <span>Rating : </span>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+      </div>
+    </div>
+    <div class="bookcard">
+      <div class="book-img">
+        <img src="/images/deep.jpeg" alt="book1" />
+      </div>
+      <div class="details">
+        <h1 class="">deep learning</h1>
+
+        <span>Author : S. Kevin Zhou</span> 
+        <div>
+          <span>Rating : </span>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star-sharp-half-stroke"></i>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="bookcard">
+        <div class="book-img">
+          <img src="/images/book1.jpeg" alt="book1" />
+        </div>
+        <div class="details">
+          <h1 class="">Rich dad poor dad</h1>
+          <span>Author : Robert Kiyosaki</span> 
+          <div>
+            <span>Rating : </span>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+      </div>
+      <div class="bookcard">
+        <div class="book-img">
+          <img src="/images/java.jpeg" alt="book1" />
+        </div>
+        <div class="details">
+          <h1 class="">Java programming</h1>
+          <span>Author : Herbert schildt</span> 
+          <div>
+            <span>Rating : </span>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-sharp-half-stroke"></i>
+          </div>
+        </div>
+      </div>
+      <div class="bookcard">
+        <div class="book-img">
+          <img src="/images/python.jpeg" alt="book1" />
+        </div>
+        <div class="details">
+          <h1 class="">python programming</h1>
+          <span>Author : </span> 
+          <div>
+            <span>Rating : </span>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+      </div>
+      <div class="bookcard">
+        <div class="book-img">
+          <img src="/images/deep.jpeg" alt="book1" />
+        </div>
+        <div class="details">
+          <h1 class="">deep learning</h1>
+  
+          <span>Author : S. Kevin Zhou</span> 
+          <div>
+            <span>Rating : </span>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-sharp-half-stroke"></i>
+          </div>
+        </div>
+      </div>
 
 
 
 
+
+
+      <div class="bookcard">
+        <div class="book-img">
+          <img src="/images/book1.jpeg" alt="book1" />
+        </div>
+        <div class="details">
+          <h1 class="">Rich dad poor dad</h1>
+          <span>Author : Robert Kiyosaki</span> 
+          <div>
+            <span>Rating : </span>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+      </div>
+      <div class="bookcard">
+        <div class="book-img">
+          <img src="/images/java.jpeg" alt="book1" />
+        </div>
+        <div class="details">
+          <h1 class="">Java programming</h1>
+          <span>Author : Herbert schildt</span> 
+          <div>
+            <span>Rating : </span>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-sharp-half-stroke"></i>
+          </div>
+        </div>
+      </div>
+      <div class="bookcard">
+        <div class="book-img">
+          <img src="/images/python.jpeg" alt="book1" />
+        </div>
+        <div class="details">
+          <h1 class="">python programming</h1>
+          <span>Author : </span> 
+          <div>
+            <span>Rating : </span>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+      </div>
+      <div class="bookcard">
+        <div class="book-img">
+          <img src="/images/deep.jpeg" alt="book1" />
+        </div>
+        <div class="details">
+          <h1 class="">deep learning</h1>
+  
+          <span>Author : S. Kevin Zhou</span> 
+          <div>
+            <span>Rating : </span>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-sharp-half-stroke"></i>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+      
+  </div>
+</div>

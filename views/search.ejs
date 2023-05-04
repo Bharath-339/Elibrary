@@ -1,0 +1,48 @@
+<%= layout('layouts/boilerplate') %>
+<div class="search-wrapper">
+    <div class="search-box">
+      <form action="/search" id="search-form" method="get">
+        <input type="text" id="" placeholder="Search" name="search" />
+        <!-- <i class="fa-regular fa-magnifying-glass"></i> -->
+        <button>
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="results container">
+    <div class="flex-container">
+        <% if (data.length === 0 || data === null) { %>
+            <h1>No results found for "<%= key %>"</h1>
+          <% } else { %>
+
+              
+
+              <% for(let index = 0; index < data.length ; index++) { %>
+                <div class="bookcard">
+                    <div class="book-img">
+                      <img src=" <%= data[index].volumeInfo.imageLinks.thumbnail %> " alt="book1" />
+                    </div>
+                    <div class="details">
+                      <h2 class=""><%= data[index].volumeInfo.title %></h2>
+                      <span>Author : <%= data[index].volumeInfo.authors[0] %></span> 
+                      <br>
+                      <div>
+                        <span>Rating : </span>
+                        <% for( let index = 0; index < data[index].volumeInfo.averageRating; index++ ) { %>
+                          <i class="fa-solid fa-star"></i>
+                        <% } %>
+                        <% if (isNaN(parseFloat(data[index].volumeInfo.averageRating))) { %>
+                          <i class="fa-solid fa-star-sharp-half-stroke"></i>
+                        <% } %>
+                      </div>
+                    </div>
+                  </div>
+              <% } %>
+
+            <% } %>
+    </div>
+  </div>
+  
+          

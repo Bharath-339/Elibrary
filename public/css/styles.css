@@ -76,6 +76,7 @@ a{
 
 
 .container{
+    width: 80%;
     max-width: 1300px;
     margin: 0 auto;
 }
@@ -206,7 +207,7 @@ input:focus{
 .flex-container{
     padding: 5px 10px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
     gap: 30px;
     margin: 10px;
@@ -220,13 +221,24 @@ input:focus{
 
 .bookcard{
     width:250px;
+    max-height: 450px;
     border-radius: 10px 0 10px 0;
     overflow: hidden;
     box-shadow: var(--shadow);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .bookcard:hover{
     box-shadow: var(--shadow-hover);
 }
+.bookcard > .book-img{
+    width: 100%;
+    flex-basis: 75%;
+    overflow: hidden;
+}
+
 .bookcard > .book-img>img{
     width: 100%;
     /* height: 100%; */
@@ -235,7 +247,20 @@ input:focus{
 .bookcard > .details{
     padding: 5px 10px;
 }
+.details span{
+    font-size: var(--regular-font);
+}
+.details > div{
+    display: block;
+}
+.details  i {
+    font-size: var(--regular-font);
+    color: gold;
+}
 
+.results{
+    min-height: 250px;
+}
 /* ----------------------------   NEWS PAGE ------------------------ */
 .newsdesk{
     margin: 30px auto;
